@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.colors import ListedColormap
 
-def plot_decision_regions(_x, _y, classifier, test_idx=None, resolution=0.02):
+def plot_decision_regions(_x, _y, classifier, test_idx=None):
     """
     Plot the 2D-decision region of a classifier
     with matplotlib along its first two dimensions X[:,0] and X[:,1].
@@ -18,7 +18,7 @@ def plot_decision_regions(_x, _y, classifier, test_idx=None, resolution=0.02):
         resolution (float, optional): Resolution of the
         meshgrid used to colorize regions. Defaults to 0.02.
     """
-
+    resolution=0.02
     # setup marker generator and color map up for up to 5 classes
     #markers = ('s', 'x', 'o', '^', 'v')
     colors = ('red', 'blue', 'lightgreen', 'gray', 'cyan')
