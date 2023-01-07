@@ -1,3 +1,4 @@
+""" decision region """
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.colors import ListedColormap
@@ -19,7 +20,7 @@ def plot_decision_regions(_x, _y, classifier, test_idx=None, resolution=0.02):
     """
 
     # setup marker generator and color map up for up to 5 classes
-    markers = ('s', 'x', 'o', '^', 'v')
+    #markers = ('s', 'x', 'o', '^', 'v')
     colors = ('red', 'blue', 'lightgreen', 'gray', 'cyan')
     cmap = ListedColormap(colors[:len(np.unique(_y))])
 
@@ -42,9 +43,9 @@ def plot_decision_regions(_x, _y, classifier, test_idx=None, resolution=0.02):
 
     # Plot test samples if they exist
     if not test_idx is None:
-        X_test, y_test = _x[test_idx, :], _y[test_idx]
+        x_test, y_test = _x[test_idx, :], _y[test_idx]
         for idx, _cl in enumerate(np.unique(y_test)):
-            plt.scatter(x=X_test[y_test == _cl, 0], y=X_test[y_test == _cl, 1],
+            plt.scatter(x=x_test[y_test == _cl, 0], y=x_test[y_test == _cl, 1],
                         alpha=1, color=cmap(idx),
                         linewidths=1, marker='o', s=55, label=f'test {_cl}')
     plt.legend()
