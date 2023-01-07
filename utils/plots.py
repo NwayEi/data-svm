@@ -41,6 +41,7 @@ def plot_decision_regions(_x, _y, classifier, test_idx=None, resolution=0.02):
                         linewidths=1, marker='o', s=55, label=f'test {_cl}')
     plt.legend()
 
+""" plot deicision surface """
 def plot_contourf(_x, resolution, classifier, cmap):
     # plot the decision surface
     x1_min, x1_max = _x[:, 0].min() - 1, _x[:, 0].max() + 1
