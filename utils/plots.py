@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.colors import ListedColormap
 
-def plot_decision_regions(_X, y, classifier, test_idx=None, resolution=0.02):
+def plot_decision_regions(_x, y, classifier, test_idx=None, resolution=0.02):
     """
     Plot the 2D-decision region of a classifier
     with matplotlib along its first two dimensions X[:,0] and X[:,1].
@@ -24,8 +24,8 @@ def plot_decision_regions(_X, y, classifier, test_idx=None, resolution=0.02):
     cmap = ListedColormap(colors[:len(np.unique(y))])
 
     # plot the decision surface
-    x1_min, x1_max = _X[:, 0].min() - 1, _X[:, 0].max() + 1
-    x2_min, x2_max = _X[:, 1].min() - 1, _X[:, 1].max() + 1
+    x1_min, x1_max = _x[:, 0].min() - 1, _x[:, 0].max() + 1
+    x2_min, x2_max = _x[:, 1].min() - 1, _x[:, 1].max() + 1
     xx1, xx2 = np.meshgrid(np.arange(x1_min, x1_max, resolution),
                            np.arange(x2_min, x2_max, resolution))
     _Z = classifier.predict(np.array([xx1.ravel(), xx2.ravel()]).T)
@@ -36,13 +36,13 @@ def plot_decision_regions(_X, y, classifier, test_idx=None, resolution=0.02):
 
     # Plot samples
     for idx, cl in enumerate(np.unique(y)):
-        plt.scatter(x=_X[y == cl, 0], y=_X[y == cl, 1],
+        plt.scatter(x=_x[y == cl, 0], y=_x[y == cl, 1],
                     alpha=0.8, color=cmap(idx),
                     marker='x', label=cl)
 
     # Plot test samples if they exist
     if not test_idx is None:
-        X_test, y_test = _X[test_idx, :], y[test_idx]
+        X_test, y_test = _x[test_idx, :], y[test_idx]
         for idx, cl in enumerate(np.unique(y_test)):
             plt.scatter(x=X_test[y_test == cl, 0], y=X_test[y_test == cl, 1],
                         alpha=1, color=cmap(idx),
